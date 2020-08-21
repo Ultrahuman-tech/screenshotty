@@ -7,12 +7,12 @@ import eu.bolt.screenshotty.FallbackStrategy
 import eu.bolt.screenshotty.ScreenshotManager
 import eu.bolt.screenshotty.ScreenshotResult
 import eu.bolt.screenshotty.internal.fallback.FallbackDelegate
+import eu.bolt.screenshotty.internal.floatingpanel.FloatingPanelDataProvider
 import eu.bolt.screenshotty.internal.floatingpanel.FloatingPanelRenderer
 import eu.bolt.screenshotty.internal.pixelcopy.PixelCopyDelegateCompat
 import eu.bolt.screenshotty.internal.pixelcopy.PixelCopyDelegateV26
 import eu.bolt.screenshotty.internal.projection.MediaProjectionDelegateCompat
 import eu.bolt.screenshotty.internal.projection.MediaProjectionDelegateV21
-import eu.bolt.screenshotty.internal.floatingpanel.FloatingPanelDataProvider
 
 internal class ScreenshotManagerImpl(
     activity: Activity,
@@ -48,5 +48,4 @@ internal class ScreenshotManagerImpl(
         } else {
             MediaProjectionDelegateCompat()
         }
-
 }

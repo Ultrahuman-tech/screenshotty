@@ -32,5 +32,4 @@ class ScreenshotFileSaver private constructor(
             @IntRange(from = 0, to = QUALITY_BEST.toLong()) compressQuality: Int = QUALITY_BEST
         ) = ScreenshotFileSaver(compressFormat, compressQuality)
     }
-
 }

@@ -13,7 +13,8 @@ import java.lang.ref.WeakReference
 internal class FallbackDelegate(
     activity: Activity,
     strategies: List<FallbackStrategy>,
-    panelRenderer: FloatingPanelRenderer) {
+    panelRenderer: FloatingPanelRenderer
+) {
 
     private val activityRef = WeakReference(activity)
     private val strategies = strategies.plus(DefaultFallbackStrategy(panelRenderer))

@@ -10,5 +10,4 @@ internal class PixelCopyDelegateCompat : PixelCopyDelegate {
         val exception = MakeScreenshotFailedException.pixelCopyNotSupported()
         return ScreenshotResultImpl.error(exception)
     }
-
 }

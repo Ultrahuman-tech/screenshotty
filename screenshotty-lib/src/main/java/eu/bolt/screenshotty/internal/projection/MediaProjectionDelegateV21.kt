@@ -104,11 +104,10 @@ internal class MediaProjectionDelegateV21(
             stopSafely(projection)
             onScreenshotCaptureFailed(MakeScreenshotFailedException(e))
         }
-
     }
 
     private fun createImageReader(projection: MediaProjection, spec: ScreenshotSpec, callbackHandler: Handler): ImageReader {
-        //Lint forces to use ImageFormat (API 23+) instead of PixelFormat, even though ImageReader docs say that PixelFormat is supported
+        // Lint forces to use ImageFormat (API 23+) instead of PixelFormat, even though ImageReader docs say that PixelFormat is supported
         //noinspection WrongConstant
         val imageReader = ImageReader.newInstance(spec.width, spec.height, PixelFormat.RGBA_8888, 2)
         imageReader.setOnImageAvailableListener(ImageAvailableListener(projection, spec.width, spec.height), callbackHandler)

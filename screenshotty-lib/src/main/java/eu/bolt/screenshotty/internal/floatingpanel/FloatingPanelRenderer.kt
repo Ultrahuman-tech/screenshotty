@@ -48,5 +48,4 @@ internal class FloatingPanelRenderer(private val windowDataProvider: FloatingPan
         info.rootView.draw(canvas)
         canvas.restore()
     }
-
 }

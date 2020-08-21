@@ -20,5 +20,4 @@ internal class RxScreenshotManagerImpl(
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         screenshotManager.onActivityResult(requestCode, resultCode, data)
     }
-
 }

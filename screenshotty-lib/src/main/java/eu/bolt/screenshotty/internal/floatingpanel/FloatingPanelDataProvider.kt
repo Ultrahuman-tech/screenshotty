@@ -8,11 +8,7 @@ import android.os.Build
 import android.view.View
 import android.view.WindowManager
 import eu.bolt.screenshotty.internal.Utils
-import java.lang.Exception
-import java.lang.IllegalStateException
 import java.lang.reflect.Field
-import java.util.*
-import kotlin.collections.HashMap
 
 @Suppress("UNCHECKED_CAST")
 internal class FloatingPanelDataProvider {
@@ -132,7 +128,7 @@ internal class FloatingPanelDataProvider {
         throw NoSuchFieldException("Field $name not found for class $clazz")
     }
 
-    //Cache the field, because it's context independent
+    // Cache the field, because it's context independent
     private fun getGlobalWindowManager(activity: Activity): Any {
         var wm = cachedGlobalWindowManager
         if (wm == null) {

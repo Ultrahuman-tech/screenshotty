@@ -4,7 +4,7 @@ object Subscriptions {
 
     private val DISPOSED_INSTANCE = object : ScreenshotResult.Subscription {
         override fun dispose() {
-            //NOP
+            // NOP
         }
     }
 

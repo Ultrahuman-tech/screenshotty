@@ -11,10 +11,9 @@ import eu.bolt.screenshotty.ScreenshotBitmap
 import eu.bolt.screenshotty.ScreenshotManagerBuilder
 import eu.bolt.screenshotty.rx.asRxScreenshotManager
 import io.reactivex.disposables.Disposables
-import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import java.io.FileOutputStream
-
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
