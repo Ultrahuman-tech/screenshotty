@@ -4,7 +4,7 @@ import android.content.Intent
 
 interface ScreenshotManager {
 
-    fun makeScreenshot(): ScreenshotResult
+    fun makeScreenshot(applyErrorFallback: Boolean = true): ScreenshotResult
 
     fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?)
 }

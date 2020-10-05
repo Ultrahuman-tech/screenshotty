@@ -25,10 +25,13 @@ internal class ScreenshotManagerImpl(
     private val mediaProjectionDelegate = createMediaProjectionDelegate(activity, permissionRequestCode)
     private val fallbackDelegate = FallbackDelegate(activity, fallbackStrategies, panelRenderer)
 
-    override fun makeScreenshot(): ScreenshotResult {
-        return ScreenshotResultImpl.from(pixelCopyDelegate.makeScreenshot())
-            .onErrorFallbackTo { mediaProjectionDelegate.makeScreenshot() }
-            .onErrorFallbackTo { fallbackDelegate.makeScreenshot() }
+    override fun makeScreenshot(applyErrorFallback: Boolean): ScreenshotResult {
+        return ScreenshotResultImpl.from(pixelCopyDelegate.makeScreenshot()).apply {
+            if (applyErrorFallback) {
+                onErrorFallbackTo { mediaProjectionDelegate.makeScreenshot() }
+                    .onErrorFallbackTo { fallbackDelegate.makeScreenshot() }
+            }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
