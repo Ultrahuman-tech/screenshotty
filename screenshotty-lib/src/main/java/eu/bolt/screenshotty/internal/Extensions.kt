@@ -5,14 +5,16 @@ import android.view.ViewTreeObserver
 
 internal fun View.doOnPreDraw(dropFrame: Boolean, action: () -> Unit) {
     val observer = viewTreeObserver
-    observer.addOnPreDrawListener(object : ViewTreeObserver.OnPreDrawListener {
-        override fun onPreDraw(): Boolean {
-            if (observer.isAlive) {
-                observer.removeOnPreDrawListener(this)
+    observer.addOnPreDrawListener(
+        object : ViewTreeObserver.OnPreDrawListener {
+            override fun onPreDraw(): Boolean {
+                if (observer.isAlive) {
+                    observer.removeOnPreDrawListener(this)
+                }
+                action()
+                return !dropFrame
             }
-            action()
-            return !dropFrame
         }
-    })
+    )
     postInvalidate()
 }

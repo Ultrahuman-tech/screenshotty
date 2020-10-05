@@ -85,9 +85,12 @@ internal class MediaProjectionDelegateV21(
     private fun captureInBackground(projection: MediaProjection, screenshotSpec: ScreenshotSpec, delayMs: Long = 0L) {
         val captureThread = startCaptureThread()
         val captureThreadHandler = Handler(captureThread.looper)
-        captureThreadHandler.postDelayed({
-            doCapture(projection, screenshotSpec, captureThreadHandler)
-        }, delayMs)
+        captureThreadHandler.postDelayed(
+            {
+                doCapture(projection, screenshotSpec, captureThreadHandler)
+            },
+            delayMs
+        )
     }
 
     private fun doCapture(projection: MediaProjection, spec: ScreenshotSpec, handler: Handler) {
@@ -116,8 +119,13 @@ internal class MediaProjectionDelegateV21(
 
     private fun createVirtualDisplay(projection: MediaProjection, surface: Surface, spec: ScreenshotSpec, callbackHandler: Handler): VirtualDisplay {
         return projection.createVirtualDisplay(
-            CAPTURE_THREAD_NAME, spec.width, spec.height, spec.densityDpi,
-            VIRTUAL_DISPLAY_FLAGS, surface, null,
+            CAPTURE_THREAD_NAME,
+            spec.width,
+            spec.height,
+            spec.densityDpi,
+            VIRTUAL_DISPLAY_FLAGS,
+            surface,
+            null,
             callbackHandler
         )
     }
